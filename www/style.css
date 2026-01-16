@@ -1,0 +1,503 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+:root {
+    --primary-red: #f53d3d;
+    /* Brighter red as seen in images */
+    --header-red: #ff4444;
+    /* Header background */
+    --text-color: #000;
+    --border-color: #000;
+    --bg-color: #fff;
+    --input-height: 45px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--bg-color);
+    direction: rtl;
+    padding-bottom: 50px;
+}
+
+/* Header */
+header {
+    background-color: var(--header-red);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-logo {
+    height: 35px;
+    /* Adjust based on logo needs */
+    width: auto;
+}
+
+.menu-icon {
+    position: absolute;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    width: 28px;
+    cursor: pointer;
+}
+
+.menu-line {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Page Title & Back Button Area */
+.page-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 15px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.page-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #000;
+}
+
+.back-btn-container {
+    position: absolute;
+    right: 15px;
+    /* RTL right */
+    top: 20px;
+    border: 2px solid #de1f1f;
+    /* Darker red border */
+    padding: 2px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    background: white;
+    box-shadow: none;
+    /* Flat look as per some designs, or subtle */
+    height: 32px;
+}
+
+.back-text {
+    color: #de1f1f;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+    padding-bottom: 2px;
+    /* Visual alignment */
+}
+
+/* Arrow in the back button */
+.back-arrow {
+    width: 8px;
+    height: 8px;
+    border-left: 2px solid #de1f1f;
+    border-bottom: 2px solid #de1f1f;
+    transform: rotate(45deg);
+    /* Point left (<) */
+    margin-top: 1px;
+}
+
+/* Form Styles */
+.form-container {
+    padding: 0 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    text-align: right;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.form-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #000;
+    /* Distinct black border */
+    padding: 0 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    text-align: right;
+    border-radius: 0;
+    /* Sharp edges */
+    outline: none;
+    background: white;
+    color: #000;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.form-input[readonly] {
+    background-color: #fff;
+    /* Keep it looking like input */
+}
+
+/* Custom Dropdown Arrow */
+.select-arrow {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #000;
+}
+
+/* Submit Button */
+.submit-btn-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.submit-btn {
+    background-color: #b30000;
+    /* Darker red matching screenshots */
+    color: white;
+    border: none;
+    padding: 10px 0;
+    width: 150px;
+    /* Fixed width mostly */
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/* History Page Styling */
+.history-filter-container {
+    padding: 0 15px;
+    margin-bottom: 10px;
+}
+
+.history-month-header {
+    background-color: #f0f0f0;
+    padding: 8px 15px;
+    text-align: right;
+    /* Often month headers are aligned or just simple text */
+    color: #555;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.history-list {
+    padding: 0;
+    /* Full bleed or small pad? Usually full width list items */
+}
+
+.history-item {
+    background: white;
+    border-bottom: 1px solid #ddd;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.h-item-right {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    flex: 1;
+}
+
+.h-icon-wrapper {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #da251c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.h-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.h-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.h-date {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 2px;
+}
+
+.h-desc {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 2px;
+}
+
+.h-sub-desc {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.h-amount {
+    color: #da251c;
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-align: left;
+    /* Amounts often LTR */
+    white-space: nowrap;
+    direction: ltr;
+}
+
+/* Load More */
+.load-more-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.load-more-btn {
+    background: white;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 8px 30px;
+    border-radius: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    /* Hidden off-screen right */
+    width: 280px;
+    height: 100%;
+    background: white;
+    z-index: 999;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar-header {
+    background-color: #da251c;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-avatar-placeholder {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #da251c;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.edit-profile {
+    font-size: 0.8rem;
+    color: #ffdce0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.sidebar-menu {
+    flex: 1;
+    overflow-y: auto;
+    padding-top: 10px;
+}
+
+.menu-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s;
+}
+
+.menu-item:hover {
+    background-color: #f9f9f9;
+}
+
+.menu-item-icon {
+    width: 20px;
+    text-align: center;
+    color: #da251c;
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #da251c;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Confirmation Page Details */
+.info-list {
+    padding: 0 15px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 0 15px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #444;
+}
+
+.info-value {
+    font-weight: 400;
+    color: #000;
+}
+
+/* Receipt Page Specific Styles */
+.receipt-card {
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    margin: 10px 15px 20px 15px;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.receipt-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+}
+
+.receipt-row:last-child {
+    border-bottom: none;
+}
+
+.receipt-label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.receipt-value {
+    font-weight: 400;
+    color: #000;
+    font-size: 0.95rem;
+}
+
+/* Hover effect for history items */
+.history-item:hover {
+    background-color: #f9f9f9;
+    transition: background-color 0.2s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .transaction-actions {
+        flex-direction: column;
+    }
+
+    .action-btn {
+        width: 100%;
+    }
+
+    .amount-value {
+        font-size: 1.1rem;
+    }
+}

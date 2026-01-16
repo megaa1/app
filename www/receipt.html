@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bankak - Receipt</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons if needed, using unicode or simple chars for now if images not provided for footer icons -->
+</head>
+
+<body style="background-color: #f2f2f2;"> <!-- Slightly gray bg for receipt page -->
+
+    <header>
+        <!-- Pencil icon on left -->
+        <div class="header-pencil-icon"
+            style="position: absolute; left: 15px; color: white; font-size: 24px; cursor: pointer;">
+            ✎
+        </div>
+        <img src="white_logo_n.png" alt="Bankak Logo" class="header-logo">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+    </header>
+
+    <!-- Sidebar & Overlay -->
+    <div class="overlay" id="overlay"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="user-avatar-placeholder">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+            <div class="user-name">حسن محمد سلمان</div>
+            <div class="edit-profile">
+                <span>&#9998;</span> تعديل
+            </div>
+        </div>
+        <div class="sidebar-menu">
+            <div class="menu-item" onclick="window.location.href='index.html'">
+                <span class="menu-item-icon">&#127968;</span> انشاء معاملة
+            </div>
+            <div class="menu-item" onclick="window.location.href='history.html'">
+                <span class="menu-item-icon">&#128196;</span> المعاملات السابقة
+            </div>
+            <div class="menu-item">
+                <span class="menu-item-icon">&#127760;</span> عربي
+            </div>
+            <div class="menu-item">
+                <span class="menu-item-icon">&#9881;</span> الاعدادات
+            </div>
+            <div class="menu-item">
+                <span class="menu-item-icon">&#10067;</span> مركز المساعدة
+            </div>
+            <div class="menu-item">
+                <span class="menu-item-icon">&#8505;</span> عن بنكك Bankak
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            <div class="logout-btn">
+                <span>&#10162;</span> خروج من الحساب
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+    <div class="page-header-container">
+        <div class="back-btn-container" onclick="window.location.href='index.html'">
+            <div class="back-arrow"></div>
+            <span class="back-text">رجوع</span>
+        </div>
+        <div class="page-title">تفاصيل المعاملة</div>
+    </div>
+
+    <div class="receipt-card">
+        <div class="receipt-row">
+            <div class="receipt-label">رقم العملية</div>
+            <div class="receipt-value" id="transactionId">20028500825</div>
+        </div>
+        <div class="receipt-row">
+            <div class="receipt-label">التاريخ و الوقت</div>
+            <div class="receipt-value" style="direction: ltr;" id="transactionDateTime">09-JAN- 2026 14:52:17</div>
+        </div>
+        <div class="receipt-row">
+            <div class="receipt-label">نوع العملية</div>
+            <div class="receipt-value" id="transactionType">تحويل الي حساب اخر</div>
+        </div>
+        <div class="receipt-row">
+            <div class="receipt-label">العملة</div>
+            <div class="receipt-value" id="transactionCurrency">الجنيه السوداني</div>
+        </div>
+        <div class="receipt-row">
+            <div class="receipt-label">المبلغ</div>
+            <div class="receipt-value" id="transactionAmount">200000.00</div>
+        </div>
+        <div class="receipt-row">
+            <div class="receipt-label">من</div>
+            <div class="receipt-value" style="direction: ltr;" id="transactionFrom">0693 1202 6203 0001</div>
+        </div>
+        <div class="receipt-row">
+            <div class="receipt-label">الي</div>
+            <div class="receipt-value" style="direction: ltr;" id="transactionTo">0700 1202 6203 0001</div>
+        </div>
+        <div class="receipt-row">
+            <div class="receipt-label">الحالة</div>
+            <div class="receipt-value" id="transactionStatus">نجاح</div>
+        </div>
+        <div class="receipt-row">
+            <div class="receipt-label">اسم المرسل اليه</div>
+            <div class="receipt-value" id="recipientName">خالد محمد علي سالم</div>
+        </div>
+        <div class="receipt-row">
+            <div class="receipt-label">التعليق</div>
+            <div class="receipt-value" id="transactionComment">N/A</div>
+        </div>
+    </div>
+
+    <div class="receipt-actions-img-container" style="text-align: center; margin: 20px 0;">
+        <img src="towbtn.png" alt="Actions" style="max-width: 90%; height: auto;">
+    </div>
+
+    <!-- Footer Image -->
+    <div class="footer-img-container"
+        style="position: fixed; bottom: 0; left: 0; right: 0; text-align: center; background: #f8f8f8;">
+    </div>
+
+    <script>
+        // Load transaction details from localStorage if available
+        window.addEventListener('DOMContentLoaded', function () {
+            const transaction = JSON.parse(localStorage.getItem('selectedTransaction') || '{}');
+
+            if (transaction.date) {
+                // Update date and time
+                const dateTimeElement = document.getElementById('transactionDateTime');
+                const hours = Math.floor(Math.random() * 24).toString().padStart(2, '0');
+                const minutes = Math.floor(Math.random() * 60).toString().padStart(2, '0');
+                const seconds = Math.floor(Math.random() * 60).toString().padStart(2, '0');
+                dateTimeElement.textContent = `${transaction.date} ${hours}:${minutes}:${seconds}`;
+            }
+
+            if (transaction.description) {
+                document.getElementById('transactionType').textContent = transaction.description;
+            }
+
+            if (transaction.amount) {
+                // Remove "SDG. " prefix and format the amount
+                const amountValue = transaction.amount.replace('SDG. ', '').replace(/,/g, '');
+                document.getElementById('transactionAmount').textContent = amountValue;
+            }
+
+            if (transaction.accountNumber) {
+                // Format account number with spaces
+                const formatted = transaction.accountNumber.match(/.{1,4}/g)?.join(' ') || transaction.accountNumber;
+                document.getElementById('transactionTo').textContent = formatted;
+            }
+
+            // Generate random transaction ID
+            const txnId = Math.floor(Math.random() * 100000000000);
+            document.getElementById('transactionId').textContent = txnId;
+        });
+    </script>
+
+</body>
+
+</html>
