@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bankak - History</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background-color: #f9f9f9;">
+
+    <header>
+        <img src="white_logo_n.png" alt="Bankak Logo" class="header-logo">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+    </header>
+
+    <!-- Sidebar & Overlay -->
+    <div class="overlay" id="overlay"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="user-avatar-placeholder">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+            <div class="user-name">حسن محمد سلمان</div>
+            <div class="edit-profile">
+                <span>&#9998;</span> تعديل
+            </div>
+        </div>
+        <div class="sidebar-menu">
+            <div class="menu-item" onclick="window.location.href='index.html'">
+                <span class="menu-item-icon">&#127968;</span> انشاء معاملة
+            </div>
+            <div class="menu-item" onclick="window.location.href='history.html'">
+                <span class="menu-item-icon">&#128196;</span> المعاملات السابقة
+            </div>
+            <div class="menu-item">
+                <span class="menu-item-icon">&#127760;</span> عربي
+            </div>
+            <div class="menu-item">
+                <span class="menu-item-icon">&#9881;</span> الاعدادات
+            </div>
+            <div class="menu-item">
+                <span class="menu-item-icon">&#10067;</span> مركز المساعدة
+            </div>
+            <div class="menu-item">
+                <span class="menu-item-icon">&#8505;</span> عن بنكك Bankak
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            <div class="logout-btn">
+                <span>&#10162;</span> خروج من الحساب
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+    <div class="page-header-container">
+        <div class="back-btn-container" onclick="history.back()">
+            <div class="back-arrow"></div>
+            <span class="back-text">رجوع</span>
+        </div>
+        <div class="page-title">المعاملات السابقة</div>
+    </div>
+
+    <!-- Filter -->
+    <div class="history-filter-container">
+        <label class="form-label" style="text-align: right; display: block; width: 100%; margin-bottom: 5px;">إختار نوع
+            الخدمة</label>
+        <div class="form-input-wrapper" style="width: 100%;">
+            <select class="form-select">
+                <option></option> <!-- Empty default -->
+                <option>تحويلات</option>
+            </select>
+            <div class="select-arrow"></div>
+        </div>
+    </div>
+
+    <div class="history-month-header">January 2026</div>
+
+    <div class="history-list">
+
+        <!-- Item 1 -->
+        <div class="history-item"
+            onclick="viewTransactionDetails('09-JAN- 2026', 'تحويل الي حسابات أخرى برقم', '0700120262030001', 'SDG. 200000.00', 'ftothacc.png')"
+            style="cursor: pointer;">
+            <div class="h-item-right">
+                <img src="ftothacc.png" onerror="this.src='towbtn.png'" alt="Icon" class="h-icon">
+                <div class="h-details">
+                    <div class="h-date">09-JAN- 2026</div>
+                    <div class="h-desc">تحويل الي حسابات أخرى برقم</div>
+                    <div class="h-sub-desc">0700120262030001</div>
+                </div>
+            </div>
+            <div class="h-amount">SDG. 200000.00</div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="history-item"
+            onclick="viewTransactionDetails('09-JAN- 2026', 'تحويل الي حسابات أخرى برقم', '1003078505160001', 'SDG. 93500.00', 'ftothacc.png')"
+            style="cursor: pointer;">
+            <div class="h-item-right">
+                <img src="ftothacc.png" onerror="this.src='towbtn.png'" alt="Icon" class="h-icon">
+                <div class="h-details">
+                    <div class="h-date">09-JAN- 2026</div>
+                    <div class="h-desc">تحويل الي حسابات أخرى برقم</div>
+                    <div class="h-sub-desc">1003078505160001</div>
+                </div>
+            </div>
+            <div class="h-amount">SDG. 93500.00</div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="history-item"
+            onclick="viewTransactionDetails('09-JAN- 2026', 'تحويل الي حسابات أخرى برقم', '0033333333333001', 'SDG. 102800.00', 'ftothacc.png')"
+            style="cursor: pointer;">
+            <div class="h-item-right">
+                <img src="ftothacc.png" onerror="this.src='towbtn.png'" alt="Icon" class="h-icon">
+                <div class="h-details">
+                    <div class="h-date">09-JAN- 2026</div>
+                    <div class="h-desc">تحويل الي حسابات أخرى برقم</div>
+                    <div class="h-sub-desc">0033333333333001</div>
+                </div>
+            </div>
+            <div class="h-amount">SDG. 102800.00</div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="history-item"
+            onclick="viewTransactionDetails('09-JAN- 2026', 'تحويل الي حسابات أخرى برقم', '005302190200001', 'SDG. 1496000.00', 'ftothacc.png')"
+            style="cursor: pointer;">
+            <div class="h-item-right">
+                <img src="ftothacc.png" onerror="this.src='towbtn.png'" alt="Icon" class="h-icon">
+                <div class="h-details">
+                    <div class="h-date">09-JAN- 2026</div>
+                    <div class="h-desc">تحويل الي حسابات أخرى برقم</div>
+                    <div class="h-sub-desc">005302190200001</div>
+                </div>
+            </div>
+            <div class="h-amount">SDG. 1496000.00</div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="history-item"
+            onclick="viewTransactionDetails('08-JAN- 2026', 'تحويل الي حسابات أخرى برقم', '0093027760910001', 'SDG. 2805000.00', 'ftothacc.png')"
+            style="cursor: pointer;">
+            <div class="h-item-right">
+                <img src="ftothacc.png" onerror="this.src='towbtn.png'" alt="Icon" class="h-icon">
+                <div class="h-details">
+                    <div class="h-date">08-JAN- 2026</div>
+                    <div class="h-desc">تحويل الي حسابات أخرى برقم</div>
+                    <div class="h-sub-desc">0093027760910001</div>
+                </div>
+            </div>
+            <div class="h-amount">SDG. 2805000.00</div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="history-item"
+            onclick="viewTransactionDetails('08-JAN- 2026', 'تحويل الي حسابات أخرى برقم', '0433018040080001', 'SDG. 46700.00', 'ftothacc.png')"
+            style="cursor: pointer;">
+            <div class="h-item-right">
+                <img src="ftothacc.png" onerror="this.src='towbtn.png'" alt="Icon" class="h-icon">
+                <div class="h-details">
+                    <div class="h-date">08-JAN- 2026</div>
+                    <div class="h-desc">تحويل الي حسابات أخرى برقم</div>
+                    <div class="h-sub-desc">0433018040080001</div>
+                </div>
+            </div>
+            <div class="h-amount">SDG. 46700.00</div>
+        </div>
+
+        <!-- Add more items as needed to fill scroll -->
+
+    </div>
+
+    <div class="load-more-container">
+        <button class="load-more-btn">
+            <span>&#8595;</span> <!-- Down arrow -->
+            المزيد
+        </button>
+    </div>
+
+    <script>
+        function viewTransactionDetails(date, description, accountNumber, amount, icon) {
+            // Store transaction data in localStorage
+            const transaction = {
+                date: date,
+                description: description,
+                accountNumber: accountNumber,
+                amount: amount,
+                icon: icon
+            };
+            localStorage.setItem('selectedTransaction', JSON.stringify(transaction));
+
+            // Navigate to receipt page
+            window.location.href = 'receipt.html';
+        }
+    </script>
+
+</body>
+
+</html>

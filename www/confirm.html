@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bankak - Confirmation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="white_logo_n.png" alt="Bankak Logo" class="header-logo">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+    </header>
+
+    <!-- Sidebar & Overlay -->
+    <div class="overlay" id="overlay"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="user-avatar-placeholder">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+            <div class="user-name">حسن محمد سلمان</div>
+            <div class="edit-profile">
+                <span>&#9998;</span> تعديل
+            </div>
+        </div>
+        <div class="sidebar-menu">
+            <div class="menu-item" onclick="window.location.href='index.html'">
+                <span class="menu-item-icon">&#127968;</span> انشاء معاملة
+            </div>
+            <div class="menu-item" onclick="window.location.href='history.html'">
+                <span class="menu-item-icon">&#128196;</span> المعاملات السابقة
+            </div>
+            <div class="menu-item">
+                <span class="menu-item-icon">&#127760;</span> عربي
+            </div>
+            <div class="menu-item">
+                <span class="menu-item-icon">&#9881;</span> الاعدادات
+            </div>
+            <div class="menu-item">
+                <span class="menu-item-icon">&#10067;</span> مركز المساعدة
+            </div>
+            <div class="menu-item">
+                <span class="menu-item-icon">&#8505;</span> عن بنكك Bankak
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            <div class="logout-btn">
+                <span>&#10162;</span> خروج من الحساب
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+    <div class="page-header-container">
+        <div class="back-btn-container" onclick="history.back()">
+            <div class="back-arrow"></div>
+            <span class="back-text">رجوع</span>
+        </div>
+        <div class="page-title">تفاصيل المعاملة</div>
+    </div>
+
+    <div class="info-list">
+        <div class="info-row">
+            <div class="info-label">رقم العملية</div>
+            <div class="info-value">20028500825</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">نوع العملية</div>
+            <div class="info-value">تحويل الي حساب اخر</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">العملة</div>
+            <div class="info-value">الجنيه السوداني</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">المبلغ</div>
+            <div class="info-value">200,000.00</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">الحساب المحول منه</div>
+            <div class="info-value" style="direction: ltr;">0693 1202 6203 0001</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">الحساب المحول اليه</div>
+            <div class="info-value" style="direction: ltr;">0700 1202 6203 0001</div>
+        </div>
+
+        <div class="submit-btn-container">
+            <button class="submit-btn" onclick="window.location.href='receipt.html'">تأكيد المعاملة</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
